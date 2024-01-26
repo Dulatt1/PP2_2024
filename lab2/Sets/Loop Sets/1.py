@@ -1,4 +1,4 @@
-thisset = {"apple", "banana", "cherry"}
+thissett = {"apple", "banana", "cherry"}
 
-for x in thisset:
+for x in thissett:
     print(x)
