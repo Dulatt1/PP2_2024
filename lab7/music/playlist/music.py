@@ -4,7 +4,7 @@ clock = pygame.time.Clock()
 
 size = (450, 600)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption('Spotify')
+pygame.display.set_caption('NedoPlayer')
 
 background_img = pygame.image.load("../img/2.png")
 image = pygame.image.load("../img/1.png")
