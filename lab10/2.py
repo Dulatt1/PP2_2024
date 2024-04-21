@@ -1,30 +1,23 @@
-import csv, psycopg2
+import psycopg2
 
 config = psycopg2.connect(
-    host = 'localhost',
+    host = 'localhost', 
     database = 'postgres',
-    password = 'Dulat2005',
-    user = 'postgres'
+    user = 'postgres',
+    password = 'Dulat2005'
 )
-current = config.cursor()
-arr = []
-# вставляем данные в телефонную книгу загружая их из csv-файла
-with open('1.csv') as f:
-    reader = csv.reader(f, delimiter=',')
 
-    for row in reader:
-        row[0] = int(row[0])
-        arr.append(row)
+current = config.cursor()
+#add values into table
+id = 2
+name = 'Dulat'
+number = '+77079839500'
 
 sql = '''
-    INSERT INTO phonebook VALUES (%s, %s, %s) RETURNING *; 
+    INSERT INTO phonebook VALUES (%s, %s, %s); 
 '''
 
-for row in arr:
-    current.execute(sql, row)
-
-final = current.fetchall()
-print(final)
+current.execute(sql, (id, name, number))
 
 current.close()
 config.commit()
